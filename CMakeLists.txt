@@ -14,38 +14,14 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
 
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-include(DownloadProject)
 
-# With CMake 3.8 and above, we can hide warnings about git being in a
-# detached head by passing an extra GIT_CONFIG option
-if(NOT (${CMAKE_VERSION} VERSION_LESS "3.8.0"))
-    set(WILDMESHING_EXTRA_OPTIONS "GIT_CONFIG advice.detachedHead=false")
-else()
-    set(WILDMESHING_EXTRA_OPTIONS "")
-endif()
-
-# Shortcut function
-function(wildmeshing_download_project name)
-    download_project(
-        PROJ         ${name}
-        SOURCE_DIR   ${WILDMESHING_EXTERNAL}/${name}
-        DOWNLOAD_DIR ${WILDMESHING_EXTERNAL}/.cache/${name}
-        QUIET
-        ${WILDMESHING_EXTRA_OPTIONS}
-        ${ARGN}
-    )
-endfunction()
-
-################################################################################
-
-function(wildmeshing_download_tetwild)
-    wildmeshing_download_project(tetwild
-        GIT_REPOSITORY  https://github.com/wildmeshing/fTetWild
-        GIT_TAG         f471f09dd26006745387dd61694762f861c787b9
-    )
-endfunction()
-
-wildmeshing_download_tetwild()
+ExternalProject_Add(fTetWild
+    GIT_REPOSITORY https://github.com/wildmeshing/fTetWild
+	GIT_TAG         f471f09dd26006745387dd61694762f861c787b9
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+    CMAKE_ARGS
+    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+)
 
 set(PROJECT_SOURCES
         main.cpp
