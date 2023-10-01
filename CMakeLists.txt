@@ -19,14 +19,14 @@ ExternalProject_Add(gmp
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
 
+SET(GMP_LIBRARIES "C:/Program Files (x86)/GMP/lib/")
+
 ExternalProject_Add(fTetWild
     GIT_REPOSITORY https://github.com/wildmeshing/fTetWild
 	GIT_TAG         f471f09dd26006745387dd61694762f861c787b9
 	DEPENDS gmp
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
-	-DGMP_DIR="C:/Program Files (x86)/GMP/lib/cmake/gmp/"
-	-DGMP_LIBRARIES="C:/Program Files (x86)/GMP/lib/"
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
 
