@@ -22,13 +22,14 @@ ExternalProject_Add(gmp
 SET(GMP_WINDOWS_PATH "C:/Program Files (x86)/GMP/")
 
 ExternalProject_Add(fTetWild
-    GIT_REPOSITORY https://github.com/wildmeshing/fTetWild
-	GIT_TAG         f471f09dd26006745387dd61694762f861c787b9
+    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
+	GIT_TAG        patch-1
 	DEPENDS gmp
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
 	-DGMP_WINDOWS_PATH="C:/Program Files (x86)/GMP"
 	-DGMP_LIBRARIES="C:/Program Files (x86)/GMP/lib"
+	-DGMP_DIR="C:/Program Files (x86)/GMP/lib/cmake/gmp"
 	-DGMP_INCLUDE_DIRS="C:/Program Files (x86)/GMP/include"
 	-DGMP_INC="C:/Program Files (x86)/GMP/include"
 	-DGMP_LIB="C:/Program Files (x86)/GMP/lib"
