@@ -47,13 +47,13 @@ jobs:
         with:
           arch: x64
 
-	  - name: Cache Build
-	  	uses: actions/cache@v3
-		width: 
-			path: ${{ runner.temp }}\build
-			key: ${{ matrix.os }}-build
-			restore-keys: ${{ matrix.os }}-build
-
+      - name: Cache Build
+        uses: actions/cache@v3
+        with: 
+          path: ${{ runner.temp }}\build
+          key: ${{ matrix.os }}-build
+          restore-keys: ${{ matrix.os }}-build
+	
       - name: (8) Build
         working-directory: ${{ runner.temp }}\build
         env:
