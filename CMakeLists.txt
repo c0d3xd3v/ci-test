@@ -26,7 +26,8 @@ ExternalProject_Add(fTetWild
 	DEPENDS gmp
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
-	-DCMAKE_CONFIGURATION_TYPES="Release;Debug"
+	#-DCMAKE_CONFIGURATION_TYPES="Release;Debug"
+	-DGMP_DIR="C:/Program Files (x86)/GMP/lib/cmake/gmp/"
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
 
