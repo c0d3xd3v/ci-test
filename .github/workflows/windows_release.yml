@@ -52,7 +52,7 @@ jobs:
         with:
           # This one is not needed, as it is the default value anyway.
           # vcpkgDirectory: '${{ github.workspace }}/vcpkg'
-          vcpkgJsonGlob: '**/cmakepresets/vcpkg.json'
+          #vcpkgJsonGlob: '**/cmakepresets/vcpkg.json'
               
       - name: (6) Create build directory
         run:  mkdir ${{ runner.temp }}\build
