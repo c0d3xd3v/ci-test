@@ -59,7 +59,7 @@ jobs:
         env:
           CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
         run:  |
-			  cmake -S ${{github.workspace}} -B .
+              cmake -S ${{github.workspace}} -B .
               cmake --build . --parallel 4 --config Release -- /p:Platform=x64
               cd release
               
