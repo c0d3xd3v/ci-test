@@ -46,16 +46,6 @@ jobs:
           modules:      qtcharts qt3d
           setup-python: false
 
-      - name: (4) Download JOM
-        uses: suisei-cn/actions-download-file@v1
-        with:
-          url:    http://download.qt.io/official_releases/jom/jom.zip
-          target: ${{ runner.temp }}\
-
-      - name: (5) Unzip JOM
-        working-directory: ${{ runner.temp }}
-        run:  |
-              7z x jom.zip -ojom
               
       - name: (6) Create build directory
         run:  mkdir ${{ runner.temp }}\build
@@ -68,14 +58,9 @@ jobs:
       - name: (8) Build
         working-directory: ${{ runner.temp }}\build
         run:  |
-              qmake -r ${{ env.SOURCE_DIR }}\planets-qml.pro
-              ${{ runner.temp }}\jom\jom -j2
+              cmake ..
+              cmake --build . --parallel 4
               cd release
-              windeployqt --qmldir ${{ env.SOURCE_DIR }} planets-qml.exe --pdb --release --compiler-runtime
-              copy C:\Windows\System32\concrt140.dll . 
-              copy C:\Windows\System32\vccorlib140.dll .
-              copy C:\Windows\System32\msvcp140.dll .
-              copy C:\Windows\System32\vcruntime140.dll .
               
       - name: (9) Zip build
         working-directory: ${{ runner.temp }}
