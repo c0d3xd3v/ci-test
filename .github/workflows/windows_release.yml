@@ -57,6 +57,8 @@ jobs:
 
       - name: (8) Build
         working-directory: ${{ runner.temp }}\build
+        env:
+          CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
         run:  |
               cmake ..
               cmake --build . --parallel 4
