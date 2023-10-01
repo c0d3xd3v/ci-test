@@ -28,6 +28,8 @@ ExternalProject_Add(fTetWild
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
 	-DGMP_WINDOWS_PATH="C:/Program Files (x86)/GMP"
+	-DGMP_LIBRARIES="C:/Program Files (x86)/GMP/lib"
+	-DGMP_INCLUDE_DIRS="C:/Program Files (x86)/GMP/include"
 	-DGMP_INC="C:/Program Files (x86)/GMP/include"
 	-DGMP_LIB="C:/Program Files (x86)/GMP/lib"
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}

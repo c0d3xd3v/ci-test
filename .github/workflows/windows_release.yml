@@ -51,8 +51,8 @@ jobs:
         uses: actions/cache@v3
         with: 
           path: ${{ runner.temp }}\build
-          key: ${{ matrix.os }}-build
-          restore-keys: ${{ matrix.os }}-build
+          key: windows-build
+          restore-keys: windows-build
 
       - name: (8) Build
         working-directory: ${{ runner.temp }}\build
