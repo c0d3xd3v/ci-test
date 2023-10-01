@@ -17,6 +17,12 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(ExternalProject) 
 
+ExternalProject_Add(gmp
+    GIT_REPOSITORY https://github.com/gx/gmp.git
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+    CMAKE_ARGS
+    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+
 ExternalProject_Add(fTetWild
     GIT_REPOSITORY https://github.com/wildmeshing/fTetWild
 	GIT_TAG         f471f09dd26006745387dd61694762f861c787b9
