@@ -46,13 +46,6 @@ jobs:
         uses: egor-tensin/vs-shell@v2
         with:
           arch: x64
-	  
-	  - name: Cache build
-		uses: actions/cache@v3
-		with:
-		  path: ${{ runner.temp }}/build
-		  key: ${{ matrix.os }}-build
-		  restore-keys: ${{ matrix.os }}-build
 
       - name: (8) Build
         working-directory: ${{ runner.temp }}\build
