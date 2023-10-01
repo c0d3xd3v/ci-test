@@ -15,6 +15,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
+include(ExternalProject) 
+
 ExternalProject_Add(fTetWild
     GIT_REPOSITORY https://github.com/wildmeshing/fTetWild
 	GIT_TAG         f471f09dd26006745387dd61694762f861c787b9
