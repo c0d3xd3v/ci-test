@@ -58,6 +58,7 @@ jobs:
         working-directory: ${{ runner.temp }}\build
         env:
           CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
+		  GMP_LIBRARIES: "C:/Program Files (x86)/GMP/lib/"
         run:  |
               cmake -S ${{github.workspace}} -B .
               cmake --build . --parallel 4 --config Release -- /p:Platform=x64
