@@ -57,6 +57,7 @@ jobs:
       - name: (8) Build
         working-directory: ${{ runner.temp }}\build
         env:
+          GMP_WINDOWS_PATH: "C:/Program Files (x86)/GMP"
           CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
         run:  |
               cmake -S ${{github.workspace}} -B .
