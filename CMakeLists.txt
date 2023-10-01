@@ -16,7 +16,6 @@ ExternalProject_Add(gmp
 	GIT_TAG 6.1.2-2
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
-	#-DCMAKE_CONFIGURATION_TYPES="Release;Debug"
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
 
@@ -26,9 +25,8 @@ ExternalProject_Add(fTetWild
 	DEPENDS gmp
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
-	#-DCMAKE_CONFIGURATION_TYPES="Release;Debug"
 	-DGMP_DIR="C:/Program Files (x86)/GMP/lib/cmake/gmp/"
-	-DGMP_LIBRARIES="C:/Program Files (x86)/GMP/lib/libgmp-13.lib"
+	-DGMP_LIBRARIES="C:/Program Files (x86)/GMP/lib/"
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
 
