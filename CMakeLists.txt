@@ -24,6 +24,14 @@ ExternalProject_Add(gmp
     CMAKE_ARGS
 )
 
+ExternalProject_Add(tbb
+    GIT_REPOSITORY https://github.com/wjakob/tbb.git
+	GIT_TAG ddbe45cd3ad89df9a84cd77013d5898fc48b8e89
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+    CMAKE_ARGS
+)
+
+
 #SET(GMP_WINDOWS_PATH "C:/Program Files (x86)/GMP/")
 
 ##ExternalProject_Add(fTetWild
