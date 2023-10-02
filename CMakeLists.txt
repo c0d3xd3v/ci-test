@@ -38,13 +38,6 @@ ExternalProject_Add(tbb
     CMAKE_ARGS
 )
 
-ExternalProject_Add(sanitizers-cmake
-    GIT_REPOSITORY https://github.com/arsenm/sanitizers-cmake.git
-	GIT_TAG 6947cff3a9c9305eb9c16135dd81da3feb4bf87f
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
-    CMAKE_ARGS
-)
-
 #SET(GMP_WINDOWS_PATH "C:/Program Files (x86)/GMP/")
 
 ##ExternalProject_Add(fTetWild

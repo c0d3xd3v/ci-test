@@ -63,7 +63,7 @@ jobs:
           CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
         run:  |
               cmake -S ${{github.workspace}} -B . -DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
-              cmake --build . --parallel 4 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib /p:RuntimeLibrary=MT_StaticRelease
+              cmake --build . --parallel 8 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib /p:RuntimeLibrary=MT_StaticRelease
 
       - name: (9) Zip build
         working-directory: ${{ runner.temp }}
