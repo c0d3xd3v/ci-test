@@ -22,11 +22,9 @@ ExternalProject_Add(gmp
 	GIT_TAG 6.1.2-2
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
-	-DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
-    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
 
-SET(GMP_WINDOWS_PATH "C:/Program Files (x86)/GMP/")
+#SET(GMP_WINDOWS_PATH "C:/Program Files (x86)/GMP/")
 
 ##ExternalProject_Add(fTetWild
 #    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
