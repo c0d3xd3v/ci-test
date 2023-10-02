@@ -67,8 +67,6 @@ ExternalProject_Add(geogram
 		-DWIN32_LEAN_AND_MEAN
 		-DVC_EXTRALEAN)
 
-)
-
 #SET(GMP_WINDOWS_PATH "C:/Program Files (x86)/GMP/")
 
 ##ExternalProject_Add(fTetWild
