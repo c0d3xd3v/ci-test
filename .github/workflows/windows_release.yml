@@ -57,7 +57,7 @@ jobs:
       - name: (8) Build
         working-directory: ${{ runner.temp }}\build
         env:
-		  INSTALL_DIRECTORY: "D:/install"
+          INSTALL_DIRECTORY: "D:/install"
           GMP_INCLUDE_DIRS: "C:/Program Files (x86)/GMP/include"
           GMP_LIBRARIES: "C:/Program Files (x86)/GMP/lib"
           GMP_WINDOWS_PATH: "C:/Program Files (x86)/GMP"
@@ -69,7 +69,7 @@ jobs:
       - name: (9) Zip build
         working-directory: ${{ runner.temp }}
         run:  |
-              7z a qt-planets-build.zip "C:/Program Files (x86)/*" -r
+              7z a qt-planets-build.zip ${{ env.INSTALL_DIRECTORY }}/* -r
               
       - name: (10) Save build artifact
         uses: actions/upload-artifact@master
