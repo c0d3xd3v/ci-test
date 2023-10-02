@@ -49,7 +49,7 @@ ExternalProject_Add(spdlog
 
 ExternalProject_Add(geogram
     GIT_REPOSITORY https://github.com/polyfem/geogram.git
-	GIT_TAG b613750341a6cdd31ae8df80ecfc26ac7ca1a6ad
+	#GIT_TAG b613750341a6cdd31ae8df80ecfc26ac7ca1a6ad
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
 )
