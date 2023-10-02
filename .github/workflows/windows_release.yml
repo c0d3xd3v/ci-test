@@ -62,8 +62,8 @@ jobs:
           GMP_WINDOWS_PATH: "C:/Program Files (x86)/GMP"
           CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
         run:  |
-              cmake -S ${{github.workspace}} -B . -DMSVC_RUNTIME=static
-              cmake --build . --parallel 4 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib /p:RuntimeLibrary=MT_StaticRelease
+              cmake -S ${{github.workspace}} -B .
+              cmake --build . --parallel 4 --config Release -DMSVC_RUNTIME=static -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib /p:RuntimeLibrary=MT_StaticRelease
               cd release
               
       - name: (9) Zip build
