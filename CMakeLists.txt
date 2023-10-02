@@ -2,18 +2,13 @@ cmake_minimum_required(VERSION 3.14)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-set(CMAKE_USER_MAKE_RULES_OVERRIDE
-  ${CMAKE_CURRENT_SOURCE_DIR}/cmake/c_flag_overrides.cmake)
-set(CMAKE_USER_MAKE_RULES_OVERRIDE_CXX
-  ${CMAKE_CURRENT_SOURCE_DIR}/cmake/cxx_flag_overrides.cmake)
-
+set(CMAKE_USER_MAKE_RULES_OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/cmake/c_flag_overrides.cmake)
+set(CMAKE_USER_MAKE_RULES_OVERRIDE_CXX ${CMAKE_CURRENT_SOURCE_DIR}/cmake/cxx_flag_overrides.cmake)
 
 project(ci-test VERSION 0.1 LANGUAGES CXX)
 
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 
 include(ExternalProject) 
 
@@ -34,6 +29,27 @@ ExternalProject_Add(cli11
 ExternalProject_Add(tbb
     GIT_REPOSITORY https://github.com/wjakob/tbb.git
 	GIT_TAG ddbe45cd3ad89df9a84cd77013d5898fc48b8e89
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+    CMAKE_ARGS
+)
+
+ExternalProject_Add(fmt
+    GIT_REPOSITORY https://github.com/fmtlib/fmt.git
+	GIT_TAG 5.3.0
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+    CMAKE_ARGS
+)
+
+ExternalProject_Add(spdlog
+    GIT_REPOSITORY https://github.com/gabime/spdlog.git
+	GIT_TAG v1.3.1
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+    CMAKE_ARGS
+)
+
+ExternalProject_Add(geogram
+    GIT_REPOSITORY https://github.com/polyfem/geogram.git
+	GIT_TAG b613750341a6cdd31ae8df80ecfc26ac7ca1a6ad
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
 )
