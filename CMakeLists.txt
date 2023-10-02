@@ -31,8 +31,6 @@ ExternalProject_Add(fTetWild
 	-DGMP_LIBRARIES="C:/Program Files (x86)/GMP/lib"
 	-DGMP_DIR="C:/Program Files (x86)/GMP/lib/cmake/gmp"
 	-DGMP_INCLUDE_DIRS="C:/Program Files (x86)/GMP/include"
-	-DGMP_INC="C:/Program Files (x86)/GMP/include"
-	-DGMP_LIB="C:/Program Files (x86)/GMP/lib"
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
 
