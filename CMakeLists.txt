@@ -40,12 +40,12 @@ ExternalProject_Add(fmt
     CMAKE_ARGS
 )
 
-ExternalProject_Add(spdlog
-    GIT_REPOSITORY https://github.com/gabime/spdlog.git
-	GIT_TAG v1.3.1
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
-    CMAKE_ARGS
-)
+#ExternalProject_Add(spdlog
+#    GIT_REPOSITORY https://github.com/gabime/spdlog.git
+#	GIT_TAG v1.3.1
+#    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+#    CMAKE_ARGS
+#)
 
 ExternalProject_Add(geogram
     GIT_REPOSITORY https://github.com/polyfem/geogram.git
