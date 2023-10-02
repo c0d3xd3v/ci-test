@@ -63,7 +63,7 @@ jobs:
           CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
         run:  |
               cmake -S ${{github.workspace}} -B .
-              cmake --build . --parallel 4 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=1
+              cmake --build . --parallel 4 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt
               cd release
               
       - name: (9) Zip build
