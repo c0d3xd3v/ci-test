@@ -24,6 +24,13 @@ ExternalProject_Add(gmp
     CMAKE_ARGS
 )
 
+ExternalProject_Add(cli11
+    GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
+	GIT_TAG 1.8.0
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+    CMAKE_ARGS
+)
+
 ExternalProject_Add(tbb
     GIT_REPOSITORY https://github.com/wjakob/tbb.git
 	GIT_TAG ddbe45cd3ad89df9a84cd77013d5898fc48b8e89
@@ -31,6 +38,12 @@ ExternalProject_Add(tbb
     CMAKE_ARGS
 )
 
+ExternalProject_Add(sanitizers-cmake
+    GIT_REPOSITORY https://github.com/arsenm/sanitizers-cmake.git
+	GIT_TAG 6947cff3a9c9305eb9c16135dd81da3feb4bf87f
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+    CMAKE_ARGS
+)
 
 #SET(GMP_WINDOWS_PATH "C:/Program Files (x86)/GMP/")
 
