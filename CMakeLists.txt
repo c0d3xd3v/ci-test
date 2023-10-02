@@ -24,6 +24,7 @@ ExternalProject_Add(cli11
 	GIT_TAG v1.8.0
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
     CMAKE_ARGS
+	-DBUILD_TESTING=OFF
 )
 
 ExternalProject_Add(tbb
@@ -65,8 +66,6 @@ ExternalProject_Add(geogram
 	-DGEOGRAM_LIB_ONLY=ON
 	-DGEOGRAM_WITH_FPG=OFF
 	-DGEOGRAM_USE_SYSTEM_GLFW3=OFF
-	-DWIN32_LEAN_AND_MEAN
-	-DVC_EXTRALEAN
 )
 
 #SET(GMP_WINDOWS_PATH "C:/Program Files (x86)/GMP/")
