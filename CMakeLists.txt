@@ -68,8 +68,6 @@ ExternalProject_Add(geogram
 	-DGEOGRAM_USE_SYSTEM_GLFW3=OFF
 )
 
-#SET(GMP_WINDOWS_PATH "C:/Program Files (x86)/GMP/")
-
 ##ExternalProject_Add(fTetWild
 #    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
 #	GIT_TAG        patch-1

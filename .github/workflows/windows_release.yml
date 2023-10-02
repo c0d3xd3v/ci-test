@@ -13,6 +13,7 @@ env:
   SOURCE_DIR:   ${{ github.workspace }}
   QT_VERSION:   5.15.2
   ARTIFACT:     qt-planets-build.zip
+  INSTALL_DIRECTORY: "D:/install"
 
 jobs:
   build:
@@ -57,7 +58,6 @@ jobs:
       - name: (8) Build
         working-directory: ${{ runner.temp }}\build
         env:
-          INSTALL_DIRECTORY: "D:/install"
           GMP_INCLUDE_DIRS: "C:/Program Files (x86)/GMP/include"
           GMP_LIBRARIES: "C:/Program Files (x86)/GMP/lib"
           GMP_WINDOWS_PATH: "C:/Program Files (x86)/GMP"
