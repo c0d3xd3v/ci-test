@@ -26,7 +26,7 @@ ExternalProject_Add(gmp
 
 ExternalProject_Add(cli11
     GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
-	GIT_TAG 1.8.0
+	GIT_TAG v1.8.0
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
 )
