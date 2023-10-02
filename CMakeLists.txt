@@ -28,15 +28,15 @@ ExternalProject_Add(gmp
 
 SET(GMP_WINDOWS_PATH "C:/Program Files (x86)/GMP/")
 
-ExternalProject_Add(fTetWild
-    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
-	GIT_TAG        patch-1
-	DEPENDS gmp
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
-    CMAKE_ARGS
-	-DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
-	-DGMP_LIBRARIES="C:/Program Files (x86)/GMP/lib"
-	-DGMP_DIR="C:/Program Files (x86)/GMP/lib/cmake/gmp"
-    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-)
+##ExternalProject_Add(fTetWild
+#    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
+#	GIT_TAG        patch-1
+#	DEPENDS gmp
+#    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+#    CMAKE_ARGS
+#	-DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
+#	-DGMP_LIBRARIES="C:/Program Files (x86)/GMP/lib"
+#	-DGMP_DIR="C:/Program Files (x86)/GMP/lib/cmake/gmp"
+#    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+#)
 
