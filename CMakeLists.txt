@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/modules)
 
 set(CMAKE_USER_MAKE_RULES_OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/cmake/c_flag_overrides.cmake)
 set(CMAKE_USER_MAKE_RULES_OVERRIDE_CXX ${CMAKE_CURRENT_SOURCE_DIR}/cmake/cxx_flag_overrides.cmake)
@@ -93,6 +95,7 @@ ExternalProject_Add(igl
     GIT_REPOSITORY https://github.com/libigl/libigl.git
 	GIT_TAG v2.5.0
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+	DEPENDS eigen
     CMAKE_ARGS
 	-DLIBIGL_USE_STATIC_LIBRARY=OFF
 	-DLIBIGL_WITH_COMISO=OFF
@@ -111,25 +114,22 @@ ExternalProject_Add(igl
 	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
-ExternalProject_Add(exact_envelope
-    GIT_REPOSITORY https://github.com/wangbolun300/fast-envelope
-	#GIT_TAG 6.1.2-2
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
-	DEPENDS igl tbb geogram gmp
-    CMAKE_ARGS
-	-DFAST_ENVELOPE_WITH_UNIT_TESTS=OFF
-	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
-)
-
-##ExternalProject_Add(fTetWild
-#    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
-#	GIT_TAG        patch-1
-#	DEPENDS gmp
-#    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+# ExternalProject_Add(exact_envelope
+#    GIT_REPOSITORY https://github.com/wangbolun300/fast-envelope
+#    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+#	DEPENDS igl tbb geogram gmp
 #    CMAKE_ARGS
-#	-DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
-#	-DGMP_LIBRARIES="C:/Program Files (x86)/GMP/lib"
-#	-DGMP_DIR="C:/Program Files (x86)/GMP/lib/cmake/gmp"
-#    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+#	-DFAST_ENVELOPE_WITH_UNIT_TESTS=OFF
+#	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 #)
+
+ExternalProject_Add(fTetWild
+    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
+	GIT_TAG        patch-1
+	DEPENDS gmp fmt geogram igl tbb cli11 spdlog
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+    CMAKE_ARGS
+	-DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
+    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+)
 
