@@ -17,6 +17,8 @@ ExternalProject_Add(gmp
 	GIT_TAG 6.1.2-2
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
     CMAKE_ARGS
+	-DBUILD_TESTING=OFF
+	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
 ExternalProject_Add(cli11
@@ -25,6 +27,9 @@ ExternalProject_Add(cli11
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
     CMAKE_ARGS
 	-DBUILD_TESTING=OFF
+	-DCLI11_BUILD_EXAMPLES=OFF
+	-DCLI11_BUILD_EXAMPLES_JSON=OFF
+	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
 ExternalProject_Add(tbb
@@ -32,6 +37,7 @@ ExternalProject_Add(tbb
 	GIT_TAG ddbe45cd3ad89df9a84cd77013d5898fc48b8e89
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
     CMAKE_ARGS
+	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
 ExternalProject_Add(fmt
@@ -39,6 +45,9 @@ ExternalProject_Add(fmt
 	GIT_TAG 5.3.0
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
     CMAKE_ARGS
+	-DFMT_TEST=OFF
+	-DFMT_CUDA_TEST=OFF
+	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
 ExternalProject_Add(spdlog
@@ -47,6 +56,7 @@ ExternalProject_Add(spdlog
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
     CMAKE_ARGS
 	-DSPDLOG_BUILD_BENCH=OFF
+	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
 ExternalProject_Add(geogram
@@ -66,6 +76,7 @@ ExternalProject_Add(geogram
 	-DGEOGRAM_LIB_ONLY=ON
 	-DGEOGRAM_WITH_FPG=OFF
 	-DGEOGRAM_USE_SYSTEM_GLFW3=OFF
+	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
 ##ExternalProject_Add(fTetWild
