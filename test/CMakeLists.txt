@@ -18,5 +18,10 @@ find_package(CLI11)
 find_package(Libigl)
 
 
+add_custom_target(my_custom_target
+    COMMAND
+        ${CMAKE_COMMAND} -E echo Hi this is a custom target ${GMP_LIBRARIES}
+    VERBATIM
+)
 
 
