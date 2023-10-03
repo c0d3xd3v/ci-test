@@ -131,7 +131,8 @@ ExternalProject_Add(fTetWild
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
    -DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
-   -DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
+   -DGMP_INC=${CMAKE_INSTALL_PREFIX}/3rdparty/include
+   -DGMP_LIB=${CMAKE_INSTALL_PREFIX}/3rdparty/lib
    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
 
