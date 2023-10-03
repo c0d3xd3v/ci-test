@@ -9,10 +9,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(GMP)
+find_package(GMPXX)
 find_package(TBB)
-find_package(FMT)
+find_package(fmt)
 find_package(spdlog)
+find_package(eigen)
 find_package(CLI11)
+find_package(Libigl)
 
 
 
