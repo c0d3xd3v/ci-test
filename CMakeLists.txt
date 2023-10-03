@@ -140,7 +140,7 @@ ExternalProject_Add(fTetWild
 	-DGEOGRAM_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/modules
 	-DTBB_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/tbb
 	-DFMT_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/fmt
-	-Dlibigl_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/igl
+	-DIGL_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/igl
 	-DSPDLOG_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/spdlog
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
