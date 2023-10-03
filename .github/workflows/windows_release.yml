@@ -25,7 +25,7 @@ jobs:
         with:
           submodules: recursive
 
-      - name: (2) Get all tags for correct version determination
+      - name: Get all tags for correct version determination
         working-directory:  ${{ github.workspace }}
         run: |
           git fetch --all --tags -f
@@ -40,14 +40,14 @@ jobs:
 #          modules:      qtcharts qt3d
 #          setup-python: false
               
-      - name: (6) Create build directory
+      - name: Create build directory
         run:  mkdir ${{ runner.temp }}\build
 
-      - name: (7) Set up Visual Studio shell
+      - name: Set up Visual Studio shell
         uses: egor-tensin/vs-shell@v2
         with:
           arch: x64
- 
+
       - name: Cache Build
         uses: actions/cache@v3
         with: 
@@ -55,7 +55,7 @@ jobs:
           key: windows-build
           restore-keys: windows-build
 
-      - name: (8) Build
+      - name: Build
         working-directory: ${{ runner.temp }}\build
         env:
           GMP_DIR: ${{ env.INSTALL_DIRECTORY }}/3rdparty/lib/cmake/gmp
@@ -74,14 +74,14 @@ jobs:
           CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
         run:  |
               cmake -S ${{github.workspace}} -B . -DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>" -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_DIRECTORY }}
-              cmake --build . --parallel 8 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib /p:RuntimeLibrary=MT_StaticRelease
+              cmake --build . --target my_custom_target --parallel 8 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib /p:RuntimeLibrary=MT_StaticRelease
 
-      - name: (9) Zip build
+      - name: Zip build
         working-directory: ${{ runner.temp }}
         run:  |
-              7z a qt-planets-build.zip ${{ env.INSTALL_DIRECTORY }}/* -r
+              7z a ${{ env.ARTIFACT }} ${{ env.INSTALL_DIRECTORY }}/* -r
               
-      - name: (10) Save build artifact
+      - name: Save build artifact
         uses: actions/upload-artifact@master
         with:
           name: ${{ env.ARTIFACT }}
