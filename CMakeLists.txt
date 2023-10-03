@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake)
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/modules)
 
 set(CMAKE_USER_MAKE_RULES_OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/cmake/c_flag_overrides.cmake)
 set(CMAKE_USER_MAKE_RULES_OVERRIDE_CXX ${CMAKE_CURRENT_SOURCE_DIR}/cmake/cxx_flag_overrides.cmake)
@@ -130,6 +128,16 @@ ExternalProject_Add(fTetWild
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
 	-DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
+	-DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
+	-DGMPXX_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmpxx
+	-DEIGEN_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/eigen
+	-DEMBREE_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/embree-3.13.3
+	-DCLI11_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/CLI11
+	-DGEOGRAM_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/modules
+	-DTBB_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/tbb
+	-DFMT_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/fmt
+	-Dlibigl_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/igl
+	-DSPDLOG_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/spdlog
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
 
