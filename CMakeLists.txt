@@ -112,14 +112,18 @@ ExternalProject_Add(igl
 	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
-# ExternalProject_Add(exact_envelope
-#    GIT_REPOSITORY https://github.com/wangbolun300/fast-envelope
-#    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
-#	DEPENDS igl tbb geogram gmp
-#    CMAKE_ARGS
-#	-DFAST_ENVELOPE_WITH_UNIT_TESTS=OFF
-#	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
-#)
+ExternalProject_Add(exact_envelope
+    GIT_REPOSITORY https://github.com/wangbolun300/fast-envelope
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+	DEPENDS igl tbb geogram gmp
+	CONFIGURE_COMMAND ""
+	CMAKE_COMMAND ""
+	BUILD_COMMAND ""
+	INSTALL_COMMAND ""
+	TEST_COMMAND ""
+)
+ExternalProject_Get_Property(exact_envelope CMAKE_CURRENT_SOURCE_DIR)
+message("!!!!!!!!!!!!!!!!!!!! ${CMAKE_CURRENT_SOURCE_DIR}")
 
 ExternalProject_Add(fTetWild
     GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
