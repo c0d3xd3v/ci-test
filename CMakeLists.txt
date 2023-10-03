@@ -125,7 +125,7 @@ ExternalProject_Add(gmp
 #)
 
 ExternalProject_Add(fTetWild
-    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
+    GIT_REPOSITORY https://github.com/wildmeshing/wildmeshing-python.git
     GIT_TAG        patch-1
     DEPENDS gmp
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
