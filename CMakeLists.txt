@@ -93,8 +93,9 @@ ExternalProject_Add(igl
     GIT_REPOSITORY https://github.com/libigl/libigl.git
     GIT_TAG v2.5.0
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
-    DEPENDS eigen
+    DEPENDS eigen gmp
     CMAKE_ARGS
+    -DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
     -DLIBIGL_USE_STATIC_LIBRARY=OFF
     -DLIBIGL_WITH_COMISO=OFF
     -DLIBIGL_WITH_EMBREE=OFF
