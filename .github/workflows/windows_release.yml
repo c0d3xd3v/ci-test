@@ -73,8 +73,8 @@ jobs:
           GMP_WINDOWS_PATH: "C:/Program Files (x86)/GMP"
           CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
         run:  |
-    cmake -S ${{github.workspace}} -B . -DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>" -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_DIRECTORY }}
-    cmake --build . --parallel 8 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib /p:RuntimeLibrary=MT_StaticRelease
+              cmake -S ${{github.workspace}} -B . -DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>" -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_DIRECTORY }}
+              cmake --build . --parallel 8 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib /p:RuntimeLibrary=MT_StaticRelease
 
       - name: (9) Zip build
         working-directory: ${{ runner.temp }}
