@@ -123,7 +123,7 @@ ExternalProject_Add(exact_envelope
 	TEST_COMMAND ""
 )
 ExternalProject_Get_Property(exact_envelope DOWNLOAD_DIR)
-message("!!!!!!!!!!!!!!!!!!!! ${DOWNLOAD_DIR}")
+add_subdirectory(${DOWNLOAD_DIR})
 
 ExternalProject_Add(fTetWild
     GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
