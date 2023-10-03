@@ -113,7 +113,13 @@ ExternalProject_Add(igl
 )
 
 set(GMP_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp)
-add_subdirectory(test)
+
+add_custom_target(my_custom_target
+    COMMAND
+        ${CMAKE_COMMAND} -E echo Hi this is a custom target ${GMP_LIBRARIES}
+    DEPENDS gmp fmt tbb cli11 geogram igl eigen spdlog
+    VERBATIM
+)
 
 #ExternalProject_Add(exact_envelope
 #    GIT_REPOSITORY https://github.com/wangbolun300/fast-envelope
