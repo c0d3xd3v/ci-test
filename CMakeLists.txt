@@ -126,12 +126,12 @@ ExternalProject_Add(gmp
 
 ExternalProject_Add(fTetWild
     GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
-   GIT_TAG        patch-1
-   DEPENDS gmp
+    GIT_TAG        patch-1
+    DEPENDS gmp
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
     CMAKE_ARGS
-   -DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
-   -DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
-   -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+    -DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
+    -DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
+    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 )
 
