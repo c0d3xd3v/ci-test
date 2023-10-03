@@ -112,8 +112,6 @@ ExternalProject_Add(igl
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
-set(GMP_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp)
-
 add_custom_target(my_custom_target
     COMMAND
         echo building test
