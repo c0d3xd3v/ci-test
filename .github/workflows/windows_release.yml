@@ -71,7 +71,7 @@ jobs:
           GMP_INCLUDE_DIRS: "C:/Program Files (x86)/GMP/include"
           GMP_LIBRARIES: "C:/Program Files (x86)/GMP/lib"
           GMP_WINDOWS_PATH: "C:/Program Files (x86)/GMP"
-          CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
+          CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}};${{ env.INSTALL_DIRECTORY }}/3rdparty/lib/cmake/gmp;${{ env.INSTALL_DIRECTORY }}/3rdparty/lib/cmake/gmpxx;${{ env.INSTALL_DIRECTORY }}/3rdparty/lib/cmake/spdlog;${{ env.INSTALL_DIRECTORY }}/3rdparty/lib/cmake/fmt
         run:  |
               cmake -S ${{github.workspace}} -B . -DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>" -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_DIRECTORY }}
               cmake --build . --parallel 8 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib /p:RuntimeLibrary=MT_StaticRelease
