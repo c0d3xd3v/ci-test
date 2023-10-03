@@ -112,6 +112,8 @@ ExternalProject_Add(igl
 	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
+add_subdirectory(test)
+
 #ExternalProject_Add(exact_envelope
 #    GIT_REPOSITORY https://github.com/wangbolun300/fast-envelope
 #    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
