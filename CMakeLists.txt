@@ -112,36 +112,36 @@ ExternalProject_Add(igl
 	-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
-ExternalProject_Add(exact_envelope
-    GIT_REPOSITORY https://github.com/wangbolun300/fast-envelope
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
-	DEPENDS igl tbb geogram gmp
-	CONFIGURE_COMMAND ""
-	CMAKE_COMMAND ""
-	BUILD_COMMAND ""
-	INSTALL_COMMAND ""
-	TEST_COMMAND ""
-)
-ExternalProject_Get_Property(exact_envelope DOWNLOAD_DIR)
-add_subdirectory(${DOWNLOAD_DIR} ${CMAKE_CURRENT_BINARY_DIR}../build)
+#ExternalProject_Add(exact_envelope
+#    GIT_REPOSITORY https://github.com/wangbolun300/fast-envelope
+#    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+#	DEPENDS igl tbb geogram gmp
+#	CONFIGURE_COMMAND ""
+#	CMAKE_COMMAND ""
+#	BUILD_COMMAND ""
+#	INSTALL_COMMAND ""
+#	TEST_COMMAND ""
+#)
+#ExternalProject_Get_Property(exact_envelope DOWNLOAD_DIR)
+#add_subdirectory(${DOWNLOAD_DIR} ${CMAKE_CURRENT_BINARY_DIR}../build)
 
-ExternalProject_Add(fTetWild
-    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
-	GIT_TAG        patch-1
-	DEPENDS gmp fmt geogram igl tbb cli11 spdlog
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
-    CMAKE_ARGS
-	-DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
-	-DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
-	-DGMPXX_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmpxx
-	-DEIGEN_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/eigen
-	-DEMBREE_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/embree-3.13.3
-	-DCLI11_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/CLI11
-	-DGEOGRAM_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/modules
-	-DTBB_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/tbb
-	-DFMT_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/fmt
-	-DIGL_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/igl
-	-DSPDLOG_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/spdlog
-    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-)
+#ExternalProject_Add(fTetWild
+#    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
+#	GIT_TAG        patch-1
+#	DEPENDS gmp fmt geogram igl tbb cli11 spdlog
+#    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}
+#    CMAKE_ARGS
+#	-DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
+#	-DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
+#	-DGMPXX_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmpxx
+#	-DEIGEN_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/eigen
+#	-DEMBREE_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/embree-3.13.3
+#	-DCLI11_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/CLI11
+#	-DGEOGRAM_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/modules
+#	-DTBB_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/tbb
+#	-DFMT_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/fmt
+#	-DIGL_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/igl
+#	-DSPDLOG_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/spdlog
+#   -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+#)
 
