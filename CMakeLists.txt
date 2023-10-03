@@ -122,8 +122,8 @@ ExternalProject_Add(exact_envelope
 	INSTALL_COMMAND ""
 	TEST_COMMAND ""
 )
-ExternalProject_Get_Property(exact_envelope CMAKE_CURRENT_SOURCE_DIR)
-message("!!!!!!!!!!!!!!!!!!!! ${CMAKE_CURRENT_SOURCE_DIR}")
+ExternalProject_Get_Property(exact_envelope DOWNLOAD_DIR)
+message("!!!!!!!!!!!!!!!!!!!! ${DOWNLOAD_DIR}")
 
 ExternalProject_Add(fTetWild
     GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
