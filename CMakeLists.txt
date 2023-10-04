@@ -21,6 +21,16 @@ ExternalProject_Add(gmp
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
+ExternalProject_Add(ngsolve
+    GIT_REPOSITORY https://github.com/NGSolve/ngsolve.git
+    GIT_TAG v6.2.2304
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+    CMAKE_ARGS
+    -DUSE_CUDA=OFF
+    -DINSTALL_DEPENDENCIES=ON
+    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
+)
+
 #ExternalProject_Add(cli11
 #    GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
 #    GIT_TAG v1.8.0
@@ -130,7 +140,7 @@ ExternalProject_Add(fTetWild
     DEPENDS gmp
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
     CMAKE_ARGS
-    -DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded$<$<CONFIG:Release>:Release>"
+    -DBUILD_SHARED_LIBS=ON
     -DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
