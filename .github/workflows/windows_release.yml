@@ -58,10 +58,10 @@ jobs:
       - name: Build
         working-directory: ${{ runner.temp }}\build
         env:
-          CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}};${{ env.INSTALL_DIRECTORY }}/3rdparty/lib/cmake/gmp;${{ env.INSTALL_DIRECTORY }}/3rdparty/lib/cmake/gmpxx;${{ env.INSTALL_DIRECTORY }}/3rdparty/lib/cmake/spdlog;${{ env.INSTALL_DIRECTORY }}/3rdparty/lib/cmake/fmt
+          CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
         run:  |
               cmake -S ${{github.workspace}} -B . -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_DIRECTORY }} -Wno-dev
-              cmake --build . --parallel 8 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib /p:RuntimeLibrary=MT_StaticRelease
+              cmake --build . --parallel 8 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib
       - name: Zip build
         working-directory: ${{ runner.temp }}
         run:  |
