@@ -135,9 +135,18 @@ ExternalProject_Add(ngsolve
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
 )
 
+ExternalProject_Add(vtk
+    GIT_REPOSITORY https://gitlab.kitware.com/vtk/vtk.git
+    GIT_TAG v9.2.6
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+    CMAKE_ARGS
+    -DCMAKE_BUILD_TYPE=RELEASE
+    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
+)
+
 ExternalProject_Add(fTetWild
     GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
-    GIT_TAG        master
+    GIT_TAG master
     DEPENDS gmp
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
     CMAKE_ARGS
