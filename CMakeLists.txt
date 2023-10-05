@@ -22,16 +22,16 @@ ExternalProject_Add(gmp
 )
 
 
-ExternalProject_Add(ngsolve
-    GIT_REPOSITORY https://github.com/NGSolve/ngsolve.git
-    GIT_TAG v6.2.2304
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
-    CMAKE_ARGS
-    -DUSE_CUDA=OFF
-    -DCMAKE_BUILD_TYPE=RELEASE
-    -DINSTALL_DEPENDENCIES=OFF
-    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
-)
+#ExternalProject_Add(ngsolve
+#    GIT_REPOSITORY https://github.com/NGSolve/ngsolve.git
+#    GIT_TAG v6.2.2304
+#    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
+#    CMAKE_ARGS
+#    -DUSE_CUDA=OFF
+#    -DCMAKE_BUILD_TYPE=RELEASE
+#    -DINSTALL_DEPENDENCIES=OFF
+#    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
+#)
 
 #ExternalProject_Add(cli11
 #    GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
