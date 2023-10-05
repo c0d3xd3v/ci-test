@@ -21,18 +21,6 @@ ExternalProject_Add(gmp
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
-
-#ExternalProject_Add(ngsolve
-#    GIT_REPOSITORY https://github.com/NGSolve/ngsolve.git
-#    GIT_TAG v6.2.2304
-#    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
-#    CMAKE_ARGS
-#    -DUSE_CUDA=OFF
-#    -DCMAKE_BUILD_TYPE=RELEASE
-#    -DINSTALL_DEPENDENCIES=OFF
-#    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
-#)
-
 #ExternalProject_Add(cli11
 #    GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
 #    GIT_TAG v1.8.0
@@ -135,6 +123,17 @@ ExternalProject_Add(gmp
 #    DEPENDS gmp fmt tbb cli11 geogram igl eigen spdlog
 #    VERBATIM
 #)
+
+ExternalProject_Add(ngsolve
+    GIT_REPOSITORY https://github.com/NGSolve/ngsolve.git
+    GIT_TAG v6.2.2304
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
+    CMAKE_ARGS
+    -DUSE_CUDA=OFF
+    -DCMAKE_BUILD_TYPE=RELEASE
+    -DINSTALL_DEPENDENCIES=OFF
+    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
+)
 
 ExternalProject_Add(fTetWild
     GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
