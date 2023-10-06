@@ -40,7 +40,7 @@ jobs:
           dir:          ${{ runner.temp }}
           modules:      qtcharts qt3d
           setup-python: false
-          cached: true
+          cache: true
 
       - name: Create build directory
         run:  mkdir ${{ runner.temp }}\build
