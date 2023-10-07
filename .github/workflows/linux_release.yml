@@ -13,6 +13,7 @@ env:
   SOURCE_DIR:   ${{ github.workspace }}
   QT_VERSION:   5.15.2
   ARTIFACT:     qt-planets-linux-build.zip
+  INSTALL_DIRECTORY: "/tmp/install"
 
 jobs:
   build:
