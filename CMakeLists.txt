@@ -12,7 +12,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(ExternalProject) 
 
-
 ExternalProject_Add(gmp
     GIT_REPOSITORY https://github.com/gx/gmp.git
     GIT_TAG 6.1.2-2
@@ -156,3 +155,7 @@ ExternalProject_Add(fTetWild
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
+
+add_executable(test_bin test/main.cpp)
+target_link_directories(test_bin PUBLIC "${CMAKE_INSTALL_PREFIX}/3rdparty/lib/")
+target_link_libraries(test_bin FloatTetwild)

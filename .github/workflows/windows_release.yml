@@ -63,7 +63,7 @@ jobs:
           CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
         run:  |
               cmake -S ${{github.workspace}} -B . -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_DIRECTORY }} -Wno-dev
-              cmake --build . --parallel 8 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib
+              cmake --build . --parallel 4 --config Release -- /p:Platform=x64 /p:NODEFAULTLIB=msvcprt.lib
       - name: Zip build
         working-directory: ${{ runner.temp }}
         run:  |
