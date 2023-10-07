@@ -83,8 +83,8 @@ jobs:
 #          ./deploy.AppImage planets-qml.desktop -appimage -no-translations -qmldir=${{ env.SOURCE_DIR }} -extra-plugins=renderers
 #          mv Qt_planets_app*.AppImage ${{ env.ARTIFACT }}          
       
-      - name: Linux artefact
-        uses: actions/upload-artifact@v1
-        with:
-          name: ${{ env.ARTIFACT }}
-          path: ${{ env.SOURCE_DIR }}/build/${{ env.ARTIFACT }}
+#      - name: Linux artefact
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: ${{ env.ARTIFACT }}
+#          path: ${{ env.SOURCE_DIR }}/build/${{ env.ARTIFACT }}
