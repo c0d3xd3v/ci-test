@@ -156,6 +156,18 @@ ExternalProject_Add(fTetWild
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
+find_package(Qt5 REQUIRED COMPONENTS Quick QuickControls2 Gui)
+
 add_executable(test_bin test/main.cpp)
 target_link_directories(test_bin PUBLIC "${CMAKE_INSTALL_PREFIX}/3rdparty/lib/")
-target_link_libraries(test_bin FloatTetwild)
+target_link_directories(test_bin PUBLIC "${CMAKE_INSTALL_PREFIX}/3rdparty//ngsolve/lib/")
+
+target_link_libraries(test_bin
+    Qt5::Gui
+    Qt5::Quick
+    FloatTetwild
+    FastEnvelope
+    nglib
+    ngcore
+    libngsolve
+)
