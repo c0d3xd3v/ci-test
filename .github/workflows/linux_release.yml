@@ -59,16 +59,16 @@ jobs:
               cmake --build . --parallel 4 --config Release
               cmake --install . --config Release
 
-        - name: Zip build
+      - name: Zip build
           working-directory: ${{ runner.temp }}
-          run:  |
-                7z a ${{ env.ARTIFACT }} ${{ env.INSTALL_DIRECTORY }}/* -r
+        run:  |
+              7z a ${{ env.ARTIFACT }} ${{ env.INSTALL_DIRECTORY }}/* -r
 
-        - name: Save build artifact
-          uses: actions/upload-artifact@master
-          with:
-            name: ${{ env.ARTIFACT }}
-            path: ${{ runner.temp }}\${{ env.ARTIFACT }} 
+      - name: Save build artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: ${{ env.ARTIFACT }}
+          path: ${{ runner.temp }}\${{ env.ARTIFACT }} 
 
 #              qmake -r ${{ env.SOURCE_DIR }}/planets-qml.pro
 #              make
