@@ -150,7 +150,7 @@ ExternalProject_Add(vtk
 ExternalProject_Add(fTetWild
     GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
     GIT_TAG master
-    DEPENDS gmp
+#    DEPENDS gmp
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
     CMAKE_ARGS
     #-DBUILD_SHARED_LIBS=ON
