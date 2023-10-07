@@ -33,7 +33,7 @@ jobs:
       - name: Install Qt
         working-directory: ${{ env.SOURCE_DIR }}
         run:  |
-              sudo apt-get install libxmu-dev qtbase5-dev qtdeclarative5-dev qtquickcontrols2-5-dev qt5-qmake tcl tcl-dev tk tk-dev libglvnd-core-dev libglvnd-dev cmake
+              sudo apt-get install libxmu-dev libgmp-dev qtbase5-dev qtdeclarative5-dev qtquickcontrols2-5-dev qt5-qmake tcl tcl-dev tk tk-dev libglvnd-core-dev libglvnd-dev cmake
 #        uses: jurplel/install-qt-action@v2
 #        with:
 #          version:      ${{ env.QT_VERSION }}

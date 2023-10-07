@@ -12,6 +12,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(ExternalProject) 
 
+if (WIN32)
+# on linux this should be installed via package manager.
 ExternalProject_Add(gmp
     GIT_REPOSITORY https://github.com/gx/gmp.git
     GIT_TAG 6.1.2-2
@@ -20,6 +22,7 @@ ExternalProject_Add(gmp
     -DBUILD_TESTING=OFF
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
+endif(WIN32)
 
 #ExternalProject_Add(cli11
 #    GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
