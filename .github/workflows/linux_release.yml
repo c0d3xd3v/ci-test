@@ -60,7 +60,7 @@ jobs:
               cmake --install . --config Release
 
       - name: Zip build
-          working-directory: ${{ runner.temp }}
+        working-directory: ${{ runner.temp }}
         run:  |
               7z a ${{ env.ARTIFACT }} ${{ env.INSTALL_DIRECTORY }}/* -r
 
