@@ -1,0 +1,90 @@
+name: Linux Release
+
+on:
+  push:
+    branches:
+      - 'main'
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  SOURCE_DIR:   ${{ github.workspace }}
+  QT_VERSION:   5.15.2
+  ARTIFACT:     qt-planets-linux-build.zip
+
+jobs:
+  build:
+    runs-on:  ubuntu-18.04
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Get all tags for correct version determination
+        working-directory:  ${{ github.workspace }}
+        run: |
+          git fetch --all --tags -f          
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version:      ${{ env.QT_VERSION }}
+          host:         linux
+          target:       desktop
+          arch:         gcc_64
+          dir:          ${{ runner.temp }}
+          modules:      qtcharts qt3d
+          setup-python: false
+ 
+      - name: Create build directory
+        run:  mkdir ${{ runner.temp }}/build
+
+      - name: Cache Build
+        uses: actions/cache@v3
+        with: 
+          path: ${{ runner.temp }}/build
+          key: ubuntu-build
+          restore-keys: ubuntu-build
+
+      - name: Build
+        working-directory: ${{ runner.temp }}/build
+        env:
+          CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
+        run:  |
+              cmake -S ${{github.workspace}} -B . -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_DIRECTORY }} -Wno-dev
+              cmake --build . --parallel 4 --config Release
+              cmake --install . --config Release
+
+        - name: Zip build
+          working-directory: ${{ runner.temp }}
+          run:  |
+                7z a ${{ env.ARTIFACT }} ${{ env.INSTALL_DIRECTORY }}/* -r
+
+        - name: Save build artifact
+          uses: actions/upload-artifact@master
+          with:
+            name: ${{ env.ARTIFACT }}
+            path: ${{ runner.temp }}\${{ env.ARTIFACT }} 
+
+#              qmake -r ${{ env.SOURCE_DIR }}/planets-qml.pro
+#              make
+              
+#      - name: AppImage
+#        working-directory: ${{ env.SOURCE_DIR }}/build
+#        run: |
+#          wget -O deploy.AppImage https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
+#          chmod +x deploy.AppImage
+#          export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${{ github.workspace }}/Qt/5.15.2/gcc_64/lib/
+#          cp ${{ env.SOURCE_DIR }}/linux/* .
+#          ./deploy.AppImage planets-qml.desktop -appimage -no-translations -qmldir=${{ env.SOURCE_DIR }} -extra-plugins=renderers
+#          mv Qt_planets_app*.AppImage ${{ env.ARTIFACT }}          
+      
+      - name: Linux artefact
+        uses: actions/upload-artifact@v1
+        with:
+          name: ${{ env.ARTIFACT }}
+          path: ${{ env.SOURCE_DIR }}/build/${{ env.ARTIFACT }}
