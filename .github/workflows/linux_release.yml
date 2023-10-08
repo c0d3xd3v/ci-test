@@ -61,7 +61,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: ${{ env.ARTIFACT }}
-          path: ${{ runner.temp }}\${{ env.ARTIFACT }} 
+          path: ${{ env.SOURCE_DIR }}/${{ env.ARTIFACT }} 
 
 #              qmake -r ${{ env.SOURCE_DIR }}/planets-qml.pro
 #              make
