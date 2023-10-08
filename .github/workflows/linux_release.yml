@@ -34,16 +34,7 @@ jobs:
         working-directory: ${{ env.SOURCE_DIR }}
         run:  |
               sudo apt-get install libxmu-dev libgmp-dev qtbase5-dev qtdeclarative5-dev qtquickcontrols2-5-dev qt5-qmake tcl tcl-dev tk tk-dev libglvnd-core-dev libglvnd-dev cmake
-#        uses: jurplel/install-qt-action@v2
-#        with:
-#          version:      ${{ env.QT_VERSION }}
-#          host:         linux
-#          target:       desktop
-#          arch:         gcc_64
-#          dir:          ${{ runner.temp }}
-#          modules:      qtcharts qt3d
-#          setup-python: false
- 
+
       - name: Create build directory
         run:  mkdir ${{ env.SOURCE_DIR }}/build
 
@@ -56,8 +47,6 @@ jobs:
 
       - name: Build
         working-directory: ${{ env.SOURCE_DIR }}/build
-#        env:
-#          CMAKE_PREFIX_PATH: ${{env.Qt5_Dir}}
         run:  |
               cmake -S ${{ env.SOURCE_DIR }} -B . -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_DIRECTORY }} -Wno-dev
               cmake --build . --parallel 4 --config Release
