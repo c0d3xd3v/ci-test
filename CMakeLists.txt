@@ -129,12 +129,12 @@ endif(WIN32)
 
 ExternalProject_Add(ngsolve
     GIT_REPOSITORY https://github.com/NGSolve/ngsolve.git
-    GIT_TAG v6.2.2304
+    GIT_TAG v6.2.2305
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
     CMAKE_ARGS
     -DUSE_CUDA=OFF
     -DCMAKE_BUILD_TYPE=RELEASE
-    -DINSTALL_DEPENDENCIES=ON
+    #-DINSTALL_DEPENDENCIES=ON
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
 )
 
