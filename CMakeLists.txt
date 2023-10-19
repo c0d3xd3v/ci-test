@@ -137,7 +137,7 @@ endif(WIN32)
 #     -DWITH_GTEST=OFF
 #     -DWITH_BENCHMARKS=OFF
 #     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
-# )
+#)
 
 ExternalProject_Add(ngsolve
     GIT_REPOSITORY https://github.com/NGSolve/ngsolve.git
