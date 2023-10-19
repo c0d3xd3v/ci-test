@@ -14,14 +14,14 @@ include(ExternalProject)
 
 if (WIN32)
 # on linux this should be installed via package manager.
-ExternalProject_Add(gmp
-    GIT_REPOSITORY https://github.com/gx/gmp.git
-    GIT_TAG 6.1.2-2
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
-    CMAKE_ARGS
-    -DBUILD_TESTING=OFF
-    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
-)
+# ExternalProject_Add(gmp
+#     GIT_REPOSITORY https://github.com/gx/gmp.git
+#     GIT_TAG 6.1.2-2
+#     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+#     CMAKE_ARGS
+#     -DBUILD_TESTING=OFF
+#     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
+# )
 endif(WIN32)
 
 #ExternalProject_Add(cli11
@@ -127,54 +127,54 @@ endif(WIN32)
 #    VERBATIM
 #)
 
-ExternalProject_Add(zlib
-    GIT_REPOSITORY https://github.com/zlib-ng/zlib-ng.git
-    GIT_TAG 2.1.4
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
-    CMAKE_ARGS
-    -DZLIB_COMPAT=ON
-    -DZLIB_ENABLE_TESTS=OFF
-    -DWITH_GTEST=OFF
-    -DWITH_BENCHMARKS=OFF
-    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
-)
+# ExternalProject_Add(zlib
+#     GIT_REPOSITORY https://github.com/zlib-ng/zlib-ng.git
+#     GIT_TAG 2.1.4
+#     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+#     CMAKE_ARGS
+#     -DZLIB_COMPAT=ON
+#     -DZLIB_ENABLE_TESTS=OFF
+#     -DWITH_GTEST=OFF
+#     -DWITH_BENCHMARKS=OFF
+#     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
+# )
 
 ExternalProject_Add(ngsolve
     GIT_REPOSITORY https://github.com/NGSolve/ngsolve.git
     GIT_TAG v6.2.2305
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
-    DEPENDS zlib
+#    DEPENDS zlib
     CMAKE_ARGS
     -DUSE_CUDA=OFF
     -DCMAKE_BUILD_TYPE=RELEASE
     -DADDITIONAL_PATHS=${CMAKE_INSTALL_PREFIX}/3rdparty
-    -DUSE_GUI=OFF
-    -DZLIB_INCLUDE_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/include/
-    -DZLIB_LIBRARY=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/
+#    -DUSE_GUI=OFF
+#    -DZLIB_INCLUDE_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/include/
+#    -DZLIB_LIBRARY=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/
     #-DINSTALL_DEPENDENCIES=ON
-    #-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
+    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
 )
 
-ExternalProject_Add(vtk
-    GIT_REPOSITORY https://gitlab.kitware.com/vtk/vtk.git
-    GIT_TAG v9.2.6
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
-    CMAKE_ARGS
-    -DCMAKE_BUILD_TYPE=RELEASE
-    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
-)
+# ExternalProject_Add(vtk
+#     GIT_REPOSITORY https://gitlab.kitware.com/vtk/vtk.git
+#     GIT_TAG v9.2.6
+#     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+#     CMAKE_ARGS
+#     -DCMAKE_BUILD_TYPE=RELEASE
+#     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
+# )
 
-ExternalProject_Add(fTetWild
-    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
-    GIT_TAG master
-    DEPENDS gmp
-    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
-    CMAKE_ARGS
-    #-DBUILD_SHARED_LIBS=ON
-    -DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
-    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
-)
+# ExternalProject_Add(fTetWild
+#     GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
+#     GIT_TAG master
+#     DEPENDS gmp
+#     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+#     CMAKE_ARGS
+#     #-DBUILD_SHARED_LIBS=ON
+#     -DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
+#     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+#     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
+# )
 
 # find_package(Qt5 REQUIRED COMPONENTS Quick QuickControls2 Gui)
 # 
