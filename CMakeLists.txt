@@ -127,15 +127,24 @@ endif(WIN32)
 #    VERBATIM
 #)
 
+ExternalProject_Add(zlib
+    GIT_REPOSITORY https://github.com/zlib-ng/zlib-ng.git
+    GIT_TAG 2.1.4
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+    CMAKE_ARGS
+    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
+)
+
 ExternalProject_Add(ngsolve
     GIT_REPOSITORY https://github.com/NGSolve/ngsolve.git
     GIT_TAG v6.2.2305
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
+    DEPENDS zlib
     CMAKE_ARGS
     -DUSE_CUDA=OFF
     -DCMAKE_BUILD_TYPE=RELEASE
     #-DINSTALL_DEPENDENCIES=ON
-    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
+    #-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
 )
 
 ExternalProject_Add(vtk
