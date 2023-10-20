@@ -13,15 +13,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(ExternalProject) 
 
 if (WIN32)
-# on linux this should be installed via package manager.
-# ExternalProject_Add(gmp
-#     GIT_REPOSITORY https://github.com/gx/gmp.git
-#     GIT_TAG 6.1.2-2
-#     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
-#     CMAKE_ARGS
-#     -DBUILD_TESTING=OFF
-#     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
-# )
+#on linux this should be installed via package manager.
+ExternalProject_Add(gmp
+    GIT_REPOSITORY https://github.com/gx/gmp.git
+    GIT_TAG 6.1.2-2
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+    CMAKE_ARGS
+    -DBUILD_TESTING=OFF
+    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
+)
 endif(WIN32)
 
 #ExternalProject_Add(cli11
@@ -155,26 +155,26 @@ ExternalProject_Add(ngsolve
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty/ngsolve
 )
 
-# ExternalProject_Add(vtk
-#     GIT_REPOSITORY https://gitlab.kitware.com/vtk/vtk.git
-#     GIT_TAG v9.2.6
-#     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
-#     CMAKE_ARGS
-#     -DCMAKE_BUILD_TYPE=RELEASE
-#     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
-# )
+ExternalProject_Add(vtk
+    GIT_REPOSITORY https://gitlab.kitware.com/vtk/vtk.git
+    GIT_TAG v9.2.6
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+    CMAKE_ARGS
+    -DCMAKE_BUILD_TYPE=RELEASE
+    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
+)
 
-# ExternalProject_Add(fTetWild
-#     GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
-#     GIT_TAG master
-#     DEPENDS gmp
-#     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
-#     CMAKE_ARGS
-#     #-DBUILD_SHARED_LIBS=ON
-#     -DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
-#     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-#     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
-# )
+ExternalProject_Add(fTetWild
+    GIT_REPOSITORY https://github.com/c0d3xd3v/fTetWild.git
+    GIT_TAG master
+    DEPENDS gmp
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/3rdparty
+    CMAKE_ARGS
+    #-DBUILD_SHARED_LIBS=ON
+    -DGMP_DIR=${CMAKE_INSTALL_PREFIX}/3rdparty/lib/cmake/gmp
+    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
+)
 
 # find_package(Qt5 REQUIRED COMPONENTS Quick QuickControls2 Gui)
 # 
