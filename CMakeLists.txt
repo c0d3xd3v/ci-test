@@ -176,6 +176,16 @@ ExternalProject_Add(fTetWild
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/3rdparty
 )
 
+ExternalProject_Add(app
+    GIT_REPOSITORY https://github.com/c0d3xd3v/NGSovleCoding.git
+    GIT_TAG main
+    DEPENDS fTetWild vtk ngsolve
+    INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/app
+    CMAKE_ARGS
+    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+    -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/app
+)
+
 # find_package(Qt5 REQUIRED COMPONENTS Quick QuickControls2 Gui)
 # 
 # add_executable(test_bin test/main.cpp)
