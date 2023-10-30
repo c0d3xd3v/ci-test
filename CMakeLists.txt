@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(ExternalProject) 
 
+
 if (WIN32)
 #on linux this should be installed via package manager.
 ExternalProject_Add(gmp
@@ -182,7 +183,7 @@ ExternalProject_Add(app
     DEPENDS fTetWild vtk ngsolve
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/app
     CMAKE_ARGS
-    -SC++/
+    -DSOURCE_DIR C++/
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/app
 )
