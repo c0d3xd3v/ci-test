@@ -182,8 +182,8 @@ ExternalProject_Add(app
     GIT_TAG main
     DEPENDS fTetWild vtk ngsolve
     INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/app
+    SOURCE_DIR C++/
     CMAKE_ARGS
-    -DSOURCE_DIR=C++/
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/app
 )
