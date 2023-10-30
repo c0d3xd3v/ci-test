@@ -187,7 +187,6 @@ ExternalProject_Add(app
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
     -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}/app
 )
-
 # find_package(Qt5 REQUIRED COMPONENTS Quick QuickControls2 Gui)
 # 
 # add_executable(test_bin test/main.cpp)
